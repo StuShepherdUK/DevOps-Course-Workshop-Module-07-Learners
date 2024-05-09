@@ -22,12 +22,18 @@ jobs:
     - name: Run the C# dotnet test
       run: dotnet test
 
-    - name: Build Typescript code
+    - name: Install Dependancies
       working-directory: ./DotnetTemplate.Web
-      run: npm t
+      run: npm install
+
+    - name: Build code
+      working-directory: ./DotnetTemplate.Web
+      run: npm run build
 
     - name: Run linter on typescript code
       working-directory: ./DotnetTemplate.Web
       run: npm run lint
 
-    # - name: Run typescript tests
+    - name: Run typescript tests
+      working-directory: ./DotnetTemplate.Web
+      run: npm t
