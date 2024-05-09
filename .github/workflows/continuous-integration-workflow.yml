@@ -37,3 +37,9 @@ jobs:
     - name: Run typescript tests
       working-directory: ./DotnetTemplate.Web
       run: npm t
+
+    - name: Send GitHub Action trigger data to Slack workflow
+      id: slack
+      uses: slackapi/slack-github-action@v1.26.0
+      env:
+        SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
