@@ -16,9 +16,15 @@ jobs:
     #   with:                                            # This section is needed if you need to pass arguments to the action
     #     who-to-greet: 'Mona the Octocat'
 
-    - name: Get dotnet nuget
-      run: dotnet nuget add source https://api.nuget.org/v3/index.json -n nuget.org
 
     - name: Build the C# code
       run: dotnet build
 
+    - name: Run the C# dotnet test
+      run: dotnet test
+
+    # - name: Build Typescript code
+
+    # - name: Run linter on typescript code
+
+    # - name: Run typescript tests
