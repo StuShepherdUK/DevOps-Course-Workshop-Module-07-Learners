@@ -8,14 +8,16 @@ jobs:
     steps:
     - uses: actions/checkout@v4 # Adds a step to checkout the repository code
 
+    # - name: Hello world       # Name of step
+    #   run: echo 'Hello world' # Command to run
 
-    - name: Hello world       # Name of step
-      run: echo 'Hello world' # Command to run
+    # - name: Hello world 2
+    #   uses: actions/hello-world-javascript-action@v1.1 # Name of the action. This uses https://github.com/actions/hello-world-javascript-action
+    #   with:                                            # This section is needed if you need to pass arguments to the action
+    #     who-to-greet: 'Mona the Octocat'
 
-    - name: Hello world 2
-      uses: actions/hello-world-javascript-action@v1.1 # Name of the action. This uses https://github.com/actions/hello-world-javascript-action
-      with:                                            # This section is needed if you need to pass arguments to the action
-        who-to-greet: 'Mona the Octocat'
+    - name: Get dotnet nuget
+      run: dotnet nuget add source https://api.nuget.org/v3/index.json -n nuget.org
 
     - name: Build the C# code
       run: dotnet build
